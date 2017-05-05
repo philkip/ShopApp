@@ -25,23 +25,30 @@
 		
 			double precoTotal = 0.0, precoFinal = 0.0;
 		
-			out.append("<table><tr><th>Nome Artigo</th><th>Preço Individual</th><th>Quantidade</th><th>Preço Final</th></tr>");
+			out.append("<table border = 1><tr><th>Nome Artigo</th><th>Preço Individual</th><th>Quantidade</th><th>Preço Final</th></tr>");
 			//Ciclo FOR
-			for(Produto p : arp)
+			if(arp != null)
 			{
-				if(p.getQuantidade() > 1)
+			
+				for(Produto p : arp)
 				{
-					precoFinal = p.getPreco() * p.getQuantidade();
-					out.append("<tr><td align=center>" + p.getNome() + "</td><td align=center>" + p.getPreco() + "</td><td align=center>" + p.getQuantidade() + "</td><td align=center>" + precoFinal + "<td></tr>");
-					precoTotal += precoFinal;
-				}
-				else
-				{
-					out.append("<tr><td align=center>" + p.getNome() + 
-							"</td><td align=center>" + p.getPreco() + "</td><td align=center>" + 
-							p.getQuantidade() + "</td><td align=center>" + 
-							p.getPreco() + "<td></tr>");
-					precoTotal += p.getPreco();
+					if(p.getQuantidade() > 1)
+					{
+						precoFinal = p.getPreco() * p.getQuantidade();
+						out.append("<tr><td align=center>" + p.getNome() + 
+								"</td><td align=center>" + p.getPreco() + 
+								"</td><td align=center>" + p.getQuantidade() + 
+								"</td><td align=center>" + precoFinal + "</td></tr>");
+						precoTotal += precoFinal;
+					}
+					else
+					{
+						out.append("<tr><td align=center>" + p.getNome() + 
+								"</td><td align=center>" + p.getPreco() + 
+								"</td><td align=center>" + p.getQuantidade() + 
+								"</td><td align=center>" + p.getPreco() + "</td></tr>");
+						precoTotal += p.getPreco();
+					}
 				}
 			}
 			
